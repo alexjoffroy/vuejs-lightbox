@@ -1,0 +1,87 @@
+@import "variables";
+
+.lightbox {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  background: $lightbox-background-color;
+  color: $lightbox-font-color;
+  font-family: $lightbox-font-family;
+  font-size: $lightbox-font-size;
+  font-weight: $lightbox-font-weight;
+
+  &__header,
+  &__footer {
+    padding: $lightbox-padding;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__footer {
+    text-align: center;
+  }
+
+  &__body {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  &__counter {
+    font-size: $lightbox-counter-font-size;
+  }
+
+  &__control {
+    height: add-unit($lightbox-control-size);
+    width: add-unit($lightbox-control-size);
+    border: 0 none;
+    cursor: pointer;
+    outline: 0;
+    transition: transform .1s;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    // $control-background-size: add-unit($lightbox-control-size - 2 * $lightbox-padding);
+    // background-size: $control-background-size $control-background-size;
+
+    &--close {
+      background-image: url('../images/close.svg');
+    }
+
+    &--prev,
+    &--next {
+      height: add-unit($lightbox-control-size + 2 * $lightbox-padding);
+      width: add-unit($lightbox-control-size + 2 * $lightbox-padding);
+      position: absolute;
+      top: 50%;
+      background-color: $lightbox-control-background-color;
+      $control-background-size: add-unit($lightbox-control-size);
+      background-size: $control-background-size $control-background-size;
+      margin-top: add-unit(-1 * $lightbox-control-size / 2);
+    }
+
+    &--prev {
+      left: add-unit($lightbox-padding);
+      background-image: url('../images/prev.svg');
+    }
+
+    &--next {
+      right: add-unit($lightbox-padding);
+      background-image: url('../images/next.svg');
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+  }
+}

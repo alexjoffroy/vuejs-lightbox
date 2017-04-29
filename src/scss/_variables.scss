@@ -1,0 +1,21 @@
+$lightbox-unit: 1px !default
+$lightbox-padding: 10 !default
+$lightbox-background-color: rgba(0, 0, 0, 0.9) !default
+
+$lightbox-font-color: #eee !default
+$lightbox-font-family: inherit !default
+$lightbox-font-size: inherit !default
+$lightbox-font-weight: inherit !default
+
+$lightbox-control-size: 20 !default
+$lightbox-control-padding: 10 !default
+$lightbox-control-background-color: rgba(0, 0, 0, 0.1) !default
+
+$lightbox-caption-font-size: 18px !default
+$lightbox-counter-font-size: 14px !default
+
+$lightbox-transition-duration: .3s !default
+
+@function add-unit($number) {
+  @return $number * $lightbox-unit
+}

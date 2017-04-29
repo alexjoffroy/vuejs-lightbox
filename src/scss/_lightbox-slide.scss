@@ -1,0 +1,41 @@
+@import "variables";
+
+.lightbox-slide {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &__loader {
+    margin: auto;
+  }
+
+  &--prev,
+  &--next {
+    &-enter-active,
+    &-leave-active {
+      transition: all $lightbox-transition-duration ease;
+    }
+
+    &-enter,
+    &-leave-active {
+      opacity: 0;
+    }
+  }
+
+  &--prev-leave-active,
+  &--next-enter {
+    transform: translateX(100%);
+  }
+
+  &--prev-enter,
+  &--next-leave-active {
+    transform: translateX(-100%);
+  }
+}

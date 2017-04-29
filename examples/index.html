@@ -1,0 +1,89 @@
+<!DOCTYPE>
+<html>
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    	<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+		<link rel="stylesheet" href="../dist/vuejs-lightbox.css">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				font-family: 'Roboto';
+				font-size: 20px;
+				font-weight: 300;
+				max-width: 800px;
+				margin: auto;
+			}
+			.gallery {
+				margin: 10px auto 20px;
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.gallery__title {
+				flex: 1 1 100%;
+				max-width: 100%;
+			}
+			.gallery__thumbnail {
+				flex: 1 1 33.33%;
+				max-width: 33.33%;
+				height: 150px;
+				padding: 5px;
+			}
+			.gallery__img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h1>VueJS Lightbox Demo</h1>
+			<div class="gallery">
+				<h2 class="gallery__title">The Simpsons</h2>
+				<a class="gallery__thumbnail"  target="_blank" v-for="n in 9" :href="'http://lorempicsum.com/simpsons/800/500/' + n" :title="'The Simpsons ' + n" v-lightbox="'simpsons'">
+					<img class="gallery__img" :src="'http://lorempicsum.com/simpsons/300/300/' + n" alt="">
+				</a>
+			</div>
+			<div class="gallery">
+				<h2 class="gallery__title">Futurama</h2>
+				<a class="gallery__thumbnail"  target="_blank" v-for="n in 9" :href="'http://lorempicsum.com/futurama/800/500/' + n" :title="'Futurama ' + n" v-lightbox="'futurama'">
+					<img class="gallery__img" :src="'http://lorempicsum.com/futurama/300/300/' + n" alt="">
+				</a>
+			</div>
+			<div class="gallery">
+				<h2 class="gallery__title">Rio (Default lightbox)</h2>
+				<a class="gallery__thumbnail"  target="_blank" v-for="n in 9" :href="'http://lorempicsum.com/rio/800/500/' + n" :title="'Rio ' + n" v-lightbox>
+					<img class="gallery__img" :src="'http://lorempicsum.com/rio/300/300/' + n" alt="">
+				</a>
+			</div>
+			<div class="gallery">
+				<h2 class="gallery__title">Finding Nemo (Default lightbox)</h2>
+				<a class="gallery__thumbnail"  target="_blank" v-for="n in 9" :href="'http://lorempicsum.com/nemo/800/500/' + n" :title="'Finding Nemo ' + n" v-lightbox>
+					<img class="gallery__img" :src="'http://lorempicsum.com/nemo/300/300/' + n" alt="">
+				</a>
+			</div>
+			<lightbox id="simpsons"></lightbox>
+			<lightbox id="futurama"></lightbox>
+			<lightbox></lightbox>
+		</div>
+
+        <script src="https://unpkg.com/vue"></script>
+		<script src="../dist/vuejs-lightbox.browser.js"></script>
+
+		<script>
+			new Vue({
+			    name: 'example',
+			    el: '#app',
+			    components: {
+			        
+			    }
+			});
+		</script>
+	</body>
+</html>

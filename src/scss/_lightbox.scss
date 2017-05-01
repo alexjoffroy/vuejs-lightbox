@@ -8,7 +8,7 @@
   left: 0;
   display: flex;
   flex-direction: column;
-  z-index: 1;
+  z-index: 9999;
   background: $lightbox-background-color;
   color: $lightbox-font-color;
   font-family: $lightbox-font-family;

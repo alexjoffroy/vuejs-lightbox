@@ -22,9 +22,18 @@ class Store {
   open (group, id) {
     this.state.group = group || 'default'
     this.state.index = id - 1
+    window.history.pushState('lightbox', document.title, window.location.pathname)
+    window.addEventListener('popstate', () => {
+      this.closeWithoutBackHistory()
+    })
   }
 
   close () {
+    this.closeWithoutBackHistory()
+    window.history.back()
+  }
+
+  closeWithoutBackHistory () {
     this.state.group = false
     this.state.index = false
   }

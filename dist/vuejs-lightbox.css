@@ -15,7 +15,7 @@
   font-weight: inherit;
 }
 .lightbox__header, .lightbox__footer {
-    padding: 10;
+    padding: 10px;
 }
 .lightbox__header {
     display: flex;
